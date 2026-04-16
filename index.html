@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nothelfer- und Erste-Hilfe-Kurse für Firmen</title>
+  <meta name="description" content="Praxisnahe Nothelfer- und Erste-Hilfe-Kurse für Firmen. Unverbindlich Interesse anmelden." />
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --text:#17212b;
+      --muted:#556371;
+      --line:#dbe4ee;
+      --brand:#0f6b8f;
+      --brand-dark:#0a4f69;
+      --accent:#e8f4f8;
+      --ok:#166534;
+      --shadow:0 12px 30px rgba(20, 33, 61, 0.08);
+      --radius:20px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:linear-gradient(180deg,#f8fbfd 0%, #f3f7fb 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .badge{
+      display:inline-block;
+      background:var(--accent);
+      color:var(--brand-dark);
+      border:1px solid #cfe3ec;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+    header{
+      padding:24px 0 10px;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:6px 0 12px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.01em;
+      color:var(--brand-dark);
+      font-size:20px;
+    }
+    .btn{
+      appearance:none;
+      border:none;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      cursor:pointer;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+    .btn-primary{
+      background:var(--brand);
+      color:white;
+      box-shadow:var(--shadow);
+    }
+    .btn-primary:hover{background:var(--brand-dark); transform:translateY(-1px)}
+    .btn-secondary{
+      background:white;
+      color:var(--brand-dark);
+      border:1px solid var(--line);
+    }
+    .hero{
+      padding:28px 0 42px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-card, .card{
+      background:var(--card);
+      border:1px solid rgba(219,228,238,.9);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-copy{
+      padding:38px;
+    }
+    h1{
+      margin:14px 0 14px;
+      font-size:clamp(34px, 5vw, 58px);
+      line-height:1.05;
+      letter-spacing:-0.03em;
+    }
+    .lead{
+      font-size:19px;
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 0 24px;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin:24px 0 26px;
+    }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+      margin-top:10px;
+    }
+    .fact{
+      background:#f9fcff;
+      border:1px solid #dceaf1;
+      padding:14px;
+      border-radius:16px;
+    }
+    .fact strong{
+      display:block;
+      font-size:20px;
+      color:var(--brand-dark);
+      margin-bottom:4px;
+    }
+    .hero-side{
+      padding:26px;
+    }
+    .side-box{
+      background:linear-gradient(180deg,#f8fcfe 0%, #eef7fb 100%);
+      border:1px solid #d9eaf1;
+      border-radius:18px;
+      padding:22px;
+      margin-bottom:16px;
+    }
+    .checklist{padding:0; margin:14px 0 0; list-style:none}
+    .checklist li{
+      padding-left:28px;
+      position:relative;
+      margin:10px 0;
+      color:var(--muted);
+    }
+    .checklist li::before{
+      content:"✓";
+      position:absolute;
+      left:0; top:0;
+      color:var(--ok);
+      font-weight:900;
+    }
+    section{padding:18px 0 26px}
+    .section-head{
+      margin-bottom:18px;
+      max-width:70ch;
+    }
+    h2{
+      font-size:clamp(28px, 3vw, 38px);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+      margin:0 0 10px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:18px;
+      margin:0;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+    .card{
+      padding:24px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:22px;
+    }
+    .muted{color:var(--muted)}
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .pill{
+      background:#f5f8fb;
+      border:1px solid var(--line);
+      color:#314152;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+    }
+    .about strong{color:var(--brand-dark)}
+    .form-card{
+      padding:26px;
+    }
+    form{
+      display:grid;
+      gap:14px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    label{
+      font-weight:700;
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+    }
+    input, select, textarea{
+      width:100%;
+      border:1px solid #cfdbe7;
+      border-radius:14px;
+      padding:14px 14px;
+      font:inherit;
+      color:var(--text);
+      background:#fff;
+    }
+    input:focus, select:focus, textarea:focus{
+      outline:none;
+      border-color:#85b8cb;
+      box-shadow:0 0 0 4px rgba(15,107,143,.08);
+    }
+    textarea{min-height:132px; resize:vertical}
+    .consent{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .consent input{
+      width:auto;
+      margin-top:4px;
+    }
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .notice{
+      margin-top:12px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#f4fbf6;
+      border:1px solid #cae8d0;
+      color:#0f5132;
+      display:none;
+    }
+    .qr-box{
+      text-align:center;
+      padding:28px;
+    }
+    .qr{
+      width:100%;
+      max-width:260px;
+      aspect-ratio:1/1;
+      margin:14px auto 10px;
+      background:
+        linear-gradient(90deg, #000 12px, transparent 12px) 0 0/24px 24px,
+        linear-gradient(#000 12px, transparent 12px) 0 0/24px 24px,
+        linear-gradient(90deg, transparent 12px, #000 12px) 12px 12px/24px 24px,
+        linear-gradient(transparent 12px, #000 12px) 12px 12px/24px 24px,
+        #fff;
+      border:12px solid white;
+      box-shadow:inset 0 0 0 1px #d7dfe6, var(--shadow);
+      border-radius:18px;
+    }
+    .footer{
+      padding:34px 0 46px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .footer-line{
+      border-top:1px solid var(--line);
+      padding-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .highlight{
+      background:linear-gradient(transparent 62%, #dff2f8 62%);
+    }
+    @media (max-width: 960px){
+      .hero, .grid-3, .grid-2{grid-template-columns:1fr}
+      .facts{grid-template-columns:1fr}
+    }
+    @media (max-width: 680px){
+      .form-grid{grid-template-columns:1fr}
+      .hero-copy, .hero-side, .card, .form-card{padding:22px}
+      h1{font-size:38px}
+      .lead{font-size:17px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Nothelferkurse für Firmen</div>
+      <a class="btn btn-secondary" href="#interesse">Interesse anmelden</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div class="hero-card hero-copy">
+        <span class="badge">Praxisnah · Inhouse · Für Unternehmen</span>
+        <h1>Nothelfer- und Erste-Hilfe-Kurse für <span class="highlight">Firmen</span></h1>
+        <p class="lead">
+          Praxisnahe Schulungen direkt in Ihrem Betrieb – verständlich, professionell und mit Erfahrung aus der Notfallpflege.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#interesse">Unverbindlich Interesse anmelden</a>
+          <a class="btn btn-secondary" href="#angebot">Angebot ansehen</a>
+        </div>
+
+        <div class="facts">
+          <div class="fact">
+            <strong>4+ Jahre</strong>
+            <span>Erfahrung im Unterrichten von Nothelferkursen</span>
+          </div>
+          <div class="fact">
+            <strong>SVEB</strong>
+            <span>Didaktische Ausbildung für Erwachsenenbildung</span>
+          </div>
+          <div class="fact">
+            <strong>Praxisnah</strong>
+            <span>Langjährige Erfahrung in der Notfallpflege</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card hero-side">
+        <div class="side-box">
+          <h3 style="margin-top:0">Für wen eignet sich das Angebot?</h3>
+          <ul class="checklist">
+            <li>KMU und grössere Unternehmen</li>
+            <li>Büro, Produktion, Gewerbe und Dienstleistung</li>
+            <li>Praxen, Schulen, Kitas, Vereine und Institutionen</li>
+            <li>Firmen, die praxisnahe Inhouse-Kurse suchen</li>
+          </ul>
+        </div>
+
+        <div class="side-box" style="margin-bottom:0">
+          <h3 style="margin-top:0">Mögliche Formate</h3>
+          <div class="pill-row">
+            <span class="pill">Erste Hilfe im Betrieb</span>
+            <span class="pill">Refresher-Kurse</span>
+            <span class="pill">Praxisnahe Fallbeispiele</span>
+            <span class="pill">Individuelle Firmenlösungen</span>
+          </div>
+          <p class="small" style="margin-top:14px">
+            Diese Seite dient als einfache Interessensabfrage für Unternehmen, die ihren Bedarf besprechen möchten.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <section id="angebot">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Warum Firmenkurse mit echtem Praxisbezug?</h2>
+          <p class="sub">
+            Mitarbeitende sollen im Ernstfall nicht nur «etwas gehört haben», sondern sicher und ruhig handeln können.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Direkt im Betrieb</h3>
+            <p class="muted">
+              Die Schulung kann auf die Gegebenheiten Ihres Unternehmens abgestimmt werden – ohne unnötige Standardlösungen.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Praxisnahe Übungen</h3>
+            <p class="muted">
+              Verständliche Inhalte, realistische Beispiele und ein klarer Fokus auf Handlungssicherheit im Notfall.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Passend zur Branche</h3>
+            <p class="muted">
+              Inhalte können je nach Umfeld und Risikoprofil unterschiedlich gewichtet werden – etwa Büro, Werkstatt, Betreuung oder Schule.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid-2">
+        <div class="card about">
+          <div class="section-head">
+            <h2>Über mich</h2>
+            <p class="sub">Kompetenz, Ruhe und Erfahrung aus der Praxis.</p>
+          </div>
+          <p>
+            Ich verfüge über <strong>langjährige Erfahrung in der Notfallpflege</strong> und unterrichte seit
+            <strong>mehr als 4 Jahren Nothelferkurse</strong>. Zusätzlich bringe ich eine
+            <strong>SVEB-Ausbildung</strong> sowie den <strong>Nothelfer-Instruktor-Kurs</strong> mit.
+          </p>
+          <p class="muted">
+            Mein Ziel ist es, Firmenkurse anzubieten, die nicht nur formell korrekt sind, sondern für die Teilnehmenden
+            wirklich nützlich und einprägsam bleiben.
+          </p>
+        </div>
+
+        <div class="card qr-box">
+          <h3>QR-Code für Flyer oder Visitenkarte</h3>
+          <p class="muted">
+            Dies ist ein Platzhalter. Nach dem Aufschalten der Website kannst du hier einen echten QR-Code mit deiner URL einfügen.
+          </p>
+          <div class="qr" aria-label="QR-Code Platzhalter"></div>
+          <p class="small">Beispieltext: «Praxisnahe Erste-Hilfe-Kurse für Firmen – jetzt unverbindlich Interesse anmelden.»</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="interesse">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Unverbindlich Interesse anmelden</h2>
+          <p class="sub">
+            Hinterlassen Sie Ihre Angaben. Ich melde mich gerne für eine erste Bedarfsklärung oder eine unverbindliche Offerte.
+          </p>
+        </div>
+
+        <div class="hero-card form-card">
+          <form id="interestForm" action="#" method="post">
+            <div class="form-grid">
+              <div>
+                <label for="firma">Firma</label>
+                <input id="firma" name="firma" type="text" placeholder="z. B. Muster AG" required />
+              </div>
+              <div>
+                <label for="name">Kontaktperson</label>
+                <input id="name" name="name" type="text" placeholder="Vor- und Nachname" required />
+              </div>
+              <div>
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" placeholder="name@firma.ch" required />
+              </div>
+              <div>
+                <label for="telefon">Telefon (optional)</label>
+                <input id="telefon" name="telefon" type="tel" placeholder="+41 ..." />
+              </div>
+              <div>
+                <label for="ort">Ort</label>
+                <input id="ort" name="ort" type="text" placeholder="Ort / Region" />
+              </div>
+              <div>
+                <label for="personen">Anzahl Mitarbeitende / Teilnehmende</label>
+                <input id="personen" name="personen" type="text" placeholder="z. B. 12 Personen" />
+              </div>
+              <div>
+                <label for="kursart">Gewünschtes Thema</label>
+                <select id="kursart" name="kursart">
+                  <option value="">Bitte auswählen</option>
+                  <option>Erste Hilfe im Betrieb</option>
+                  <option>Nothelferkurs für Firmen</option>
+                  <option>Refresher / Auffrischung</option>
+                  <option>Individuelle Firmenschulung</option>
+                  <option>Noch unklar / Beratung erwünscht</option>
+                </select>
+              </div>
+              <div>
+                <label for="zeitraum">Gewünschter Zeitraum</label>
+                <input id="zeitraum" name="zeitraum" type="text" placeholder="z. B. Mai / Juni 2026" />
+              </div>
+            </div>
+
+            <div>
+              <label for="nachricht">Kurze Nachricht</label>
+              <textarea id="nachricht" name="nachricht" placeholder="Welche Art von Kurs suchen Sie? Gibt es besondere Anforderungen oder Schwerpunkte?"></textarea>
+            </div>
+
+            <label class="consent">
+              <input id="consent" name="consent" type="checkbox" required />
+              <span>Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden.</span>
+            </label>
+
+            <div>
+              <button class="btn btn-primary" type="submit">Interesse absenden</button>
+            </div>
+
+            <div class="notice" id="notice">
+              Vielen Dank. Die Anfrage wurde lokal im Browser verarbeitet. Für echte E-Mail-Übermittlungen muss noch ein Formular-Dienst oder ein eigener Server hinterlegt werden.
+            </div>
+
+            <p class="small">
+              Hinweis: Dieses Formular ist im HTML bereits vorbereitet. Damit Anfragen effektiv per E-Mail oder in eine Datenbank gesendet werden,
+              muss beim Aufschalten noch ein Backend oder Dienst wie Formspree, Formsubmit oder Netlify Forms angebunden werden.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-line">
+      <div>© 2026 Nothelfer- und Erste-Hilfe-Kurse für Firmen</div>
+      <div>Kontaktangaben und Impressum nach dem Aufschalten ergänzen</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('interestForm');
+    const notice = document.getElementById('notice');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const entries = JSON.parse(localStorage.getItem('interessenten') || '[]');
+        entries.push({
+          ...payload,
+          submittedAt: new Date().toISOString()
+        });
+        localStorage.setItem('interessenten', JSON.stringify(entries));
+      } catch (err) {
+        console.warn('Lokales Speichern nicht möglich:', err);
+      }
+
+      notice.style.display = 'block';
+      form.reset();
+      window.scrollTo({ top: notice.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
