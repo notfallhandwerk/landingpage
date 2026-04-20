@@ -49,6 +49,18 @@
       gap:16px;
       padding:6px 0 12px;
     }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+    .nav-links a.nav-link{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+    }
+    .nav-links a.nav-link:hover{color:var(--brand-dark)}
     .wordmark{
       display:flex;
       flex-direction:column;
@@ -97,10 +109,6 @@
     }
     .hero{
       padding:28px 0 42px;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:28px;
-      align-items:stretch;
     }
     .hero-card, .card{
       background:var(--card);
@@ -154,13 +162,12 @@
       color:var(--brand-dark);
       margin-bottom:4px;
     }
-    .hero-side{padding:26px}
+    .hero-side{padding:26px; display:flex; flex-direction:column; gap:16px}
     .side-box{
       background:linear-gradient(180deg,#f8fcfc 0%, #eef7f6 100%);
       border:1px solid #d8ebea;
       border-radius:18px;
       padding:22px;
-      margin-bottom:16px;
     }
     .checklist{padding:0; margin:14px 0 0; list-style:none}
     .checklist li{
@@ -202,21 +209,6 @@
     .card{padding:24px}
     .card h3{margin:0 0 10px; font-size:22px}
     .muted{color:var(--muted)}
-    .pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
-    }
-    .pill{
-      background:#f5f8fb;
-      border:1px solid var(--line);
-      color:#314152;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:700;
-    }
     .contact-box a{
       color:var(--brand-dark);
       font-weight:700;
@@ -289,8 +281,11 @@
       background:linear-gradient(transparent 62%, #dff2f1 62%);
     }
     @media (max-width: 960px){
-      .hero, .grid-3, .grid-2{grid-template-columns:1fr}
+      .grid-3, .grid-2{grid-template-columns:1fr}
       .facts{grid-template-columns:1fr}
+      .nav-links{gap:14px}
+      .nav-links a.nav-link{display:none}
+      .nav-links a.btn{display:inline-flex}
     }
     @media (max-width: 680px){
       .form-grid{grid-template-columns:1fr}
@@ -306,9 +301,13 @@
     <div class="wrap nav">
       <a class="wordmark" href="#">
         <span class="wordmark-title">Notfallhandwerk</span>
-        <span class="wordmark-sub">Weil Lebenretten ein Handwerk ist.</span>
+        <span class="wordmark-sub">Weil Leben retten ein Handwerk ist.</span>
       </a>
-      <a class="btn btn-secondary" href="#interesse">Interesse anmelden</a>
+      <nav class="nav-links">
+        <a class="nav-link" href="#angebot">Angebot</a>
+        <a class="nav-link" href="#ueber">Über mich</a>
+        <a class="btn btn-secondary" href="#interesse">Interesse anmelden</a>
+      </nav>
     </div>
   </header>
 
@@ -318,7 +317,7 @@
         <span class="badge">BLS-AED · Notfallschulungen · Inhouse</span>
         <h1>Praxisnahe <span class="highlight">Notfallschulungen</span> für Unternehmen und Institutionen</h1>
         <p class="lead">
-          Notfallhandwerk bietet professionelle BLS-AED-Kurse und Notfallschulungen für Pflegeheime, Spitex,
+          Notfallhandwerk bietet BLS-AED-Kurse und Notfallschulungen für Pflegeheime, Spitex,
           Unternehmen, Schulen und Vereine – verständlich, praxisnah und auf Ihre Realität abgestimmt.
         </p>
 
@@ -327,7 +326,7 @@
           <a class="btn btn-secondary" href="#angebot">Angebot ansehen</a>
         </div>
 
-        <div class="quote">Weil Lebenretten ein Handwerk ist.</div>
+        <div class="quote">Weil Leben retten ein Handwerk ist.</div>
 
         <div class="facts">
           <div class="fact">
@@ -344,33 +343,12 @@
           </div>
         </div>
       </div>
-
-      <aside class="hero-card hero-side">
-        <div class="side-box">
-          <h3 style="margin-top:0">Zielgruppen</h3>
-          <ul class="checklist">
-            <li>Pflegeheime und Spitex-Organisationen</li>
-            <li>Unternehmen und Betriebe</li>
-            <li>Schulen, Vereine und Institutionen</li>
-            <li>Teams mit Bedarf an praxisnahen Inhouse-Schulungen</li>
-          </ul>
-        </div>
-
-        <div class="side-box contact-box" style="margin-bottom:0">
-          <h3 style="margin-top:0">Kontakt</h3>
-          <p><strong>Manuela Züger</strong><br />Inhaberin, Notfallhandwerk</p>
-          <p><a href="mailto:notfallhandwerk@pm.me">notfallhandwerk@pm.me</a></p>
-          <p class="small" style="margin-top:14px">
-            Gerne für eine unverbindliche Anfrage, Bedarfsklärung oder Offerte.
-          </p>
-        </div>
-      </aside>
     </div>
 
     <section id="angebot">
       <div class="wrap">
         <div class="section-head">
-          <h2>Das Angebot von Notfallhandwerk</h2>
+          <h2>Das Angebot</h2>
           <p class="sub">
             Schulungen und Beratungen, die sich am Alltag der Teilnehmenden orientieren – statt an starren Standardlösungen.
           </p>
@@ -392,7 +370,7 @@
             </p>
           </div>
           <div class="card">
-            <h3>Beratung & Konzepte</h3>
+            <h3>Beratung &amp; Konzepte</h3>
             <p class="muted">
               Unterstützung bei Notfallorganisation, AED-Standorten, institutionsspezifischen Algorithmen
               und der Entwicklung passender Schulungskonzepte.
@@ -402,13 +380,19 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap grid-2">
+    <section id="ueber">
+      <div class="wrap">
         <div class="card">
           <div class="section-head">
-            <h2>Warum Notfallhandwerk?</h2>
+            <h2>Über Manuela Züger &amp; Notfallhandwerk</h2>
             <p class="sub">Fachkompetenz, Praxisnähe und persönliche Begleitung.</p>
           </div>
+          <p>
+            Manuela Züger ist <strong>Dipl. Expertin Notfallpflege NDS HF</strong> und führt
+            Notfallhandwerk als <strong>Einzelunternehmen</strong>. Sie verbindet fundierte klinische Erfahrung
+            mit pädagogischer Kompetenz und legt Wert auf ruhige, verständliche und alltagsnahe Schulungen.
+            Ziel ist, Menschen so zu schulen, dass sie im entscheidenden Moment sicher und ohne Zögern handeln können.
+          </p>
           <ul class="checklist">
             <li>Spezialisierung auf Pflegeheime, Gesundheitswesen und praxisnahe Teamschulungen</li>
             <li>Langjährige Erfahrung in der Notfallpflege</li>
@@ -416,20 +400,6 @@
             <li>Flexible Inhouse-Lösungen ohne zusätzlichen Reiseaufwand für Ihr Team</li>
             <li>Reale Fallbeispiele aus dem Berufsalltag statt rein theoretischer Unterricht</li>
           </ul>
-        </div>
-
-        <div class="card">
-          <div class="section-head">
-            <h2>Über Manuela Züger</h2>
-          </div>
-          <p>
-            Manuela Züger ist <strong>Dipl. Expertin Notfallpflege NDS HF</strong> und führt
-            Notfallhandwerk als <strong>Einzelunternehmen</strong>. Sie verbindet fundierte klinische Erfahrung
-            mit pädagogischer Kompetenz und legt Wert auf ruhige, verständliche und alltagsnahe Schulungen.
-          </p>
-          <p class="muted">
-            Ziel ist, Menschen so zu schulen, dass sie im entscheidenden Moment sicher und ohne Zögern handeln können.
-          </p>
         </div>
       </div>
     </section>
@@ -439,7 +409,7 @@
         <div class="section-head">
           <h2>Unverbindlich Interesse anmelden</h2>
           <p class="sub">
-            Hinterlassen Sie Ihre Angaben. Gerne melde ich mich für eine erste Bedarfsklärung, eine Offerte oder ein passendes Schulungskonzept.
+            Hinterlassen Sie Ihre Angaben. Gerne melde ich mich für eine erste Bedarfsklärung oder eine Offerte.
           </p>
         </div>
 
@@ -462,7 +432,7 @@
                 <label for="telefon">Telefon (optional)</label>
                 <input id="telefon" name="telefon" type="tel" placeholder="+41 ..." />
               </div>
-              <div>
+              <div style="grid-column:1 / -1">
                 <label for="branche">Bereich</label>
                 <select id="branche" name="branche">
                   <option value="">Bitte auswählen</option>
@@ -474,44 +444,11 @@
                   <option>Andere Institution</option>
                 </select>
               </div>
-              <div>
-                <label for="ort">Ort / Region</label>
-                <input id="ort" name="ort" type="text" placeholder="Ort / Kanton" />
-              </div>
-              <div>
-                <label for="teilnehmende">Anzahl Teilnehmende</label>
-                <input id="teilnehmende" name="teilnehmende" type="text" placeholder="z. B. 8 bis 12 Personen" />
-              </div>
-              <div>
-                <label for="thema">Gewünschtes Thema</label>
-                <select id="thema" name="thema">
-                  <option value="">Bitte auswählen</option>
-                  <option>BLS-AED Kurs</option>
-                  <option>Auffrischungskurs</option>
-                  <option>Allgemeine Notfallschulung</option>
-                  <option>Beratung Notfallkonzept</option>
-                  <option>Material- / AED-Beratung</option>
-                  <option>Noch unklar / Beratung erwünscht</option>
-                </select>
-              </div>
-              <div>
-                <label for="zeitraum">Gewünschter Zeitraum</label>
-                <input id="zeitraum" name="zeitraum" type="text" placeholder="z. B. Herbst 2026" />
-              </div>
-              <div>
-                <label for="zertifikat">Zertifikat / Anerkennung relevant?</label>
-                <select id="zertifikat" name="zertifikat">
-                  <option value="">Bitte auswählen</option>
-                  <option>Ja</option>
-                  <option>Nein</option>
-                  <option>Noch unklar</option>
-                </select>
-              </div>
             </div>
 
             <div>
-              <label for="nachricht">Kurze Nachricht</label>
-              <textarea id="nachricht" name="nachricht" placeholder="Welche Schulung oder Beratung suchen Sie? Gibt es bestimmte Risiken, Abläufe oder Schwerpunkte in Ihrer Institution?"></textarea>
+              <label for="nachricht">Ihre Nachricht</label>
+              <textarea id="nachricht" name="nachricht" placeholder="Welche Schulung oder Beratung suchen Sie? Gerne auch kurz: Anzahl Teilnehmende, Zeitraum oder Schwerpunkte." required></textarea>
             </div>
 
             <label class="consent">
@@ -528,7 +465,9 @@
             </div>
 
             <p class="small">
-              Hinweis: Die Anfrage wird über das auf dem Gerät eingerichtete E-Mail-Programm vorbereitet.
+              Hinweis: Die Anfrage wird über das auf Ihrem Gerät eingerichtete E-Mail-Programm vorbereitet.
+              Falls das nicht funktioniert, schreiben Sie gerne direkt an
+              <a href="mailto:notfallhandwerk@pm.me" style="color:var(--brand-dark); font-weight:700;">notfallhandwerk@pm.me</a>.
             </p>
           </form>
         </div>
@@ -578,11 +517,6 @@
         'E-Mail: ' + val('email'),
         'Telefon: ' + val('telefon'),
         'Bereich: ' + val('branche'),
-        'Ort / Region: ' + val('ort'),
-        'Anzahl Teilnehmende: ' + val('teilnehmende'),
-        'Gewünschtes Thema: ' + val('thema'),
-        'Gewünschter Zeitraum: ' + val('zeitraum'),
-        'Zertifikat / Anerkennung relevant: ' + val('zertifikat'),
         '',
         'Nachricht:',
         val('nachricht')
