@@ -1,8 +1,6 @@
 # robots.txt für notfallhandwerk.ch
-# Erlaubt allen Suchmaschinen das Crawlen der gesamten Seite
 
 User-agent: *
 Allow: /
 
-# Sitemap-Verweis hilft Suchmaschinen, alle Seiten zu finden
 Sitemap: https://notfallhandwerk.ch/sitemap.xml
