@@ -21,304 +21,388 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Notfallhandwerk – BLS-AED Schulungen" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Notfallhandwerk | BLS-AED und Notfallschulungen in Zürich" />
   <meta name="twitter:description" content="Praxisnahe BLS-AED-Kurse und Notfallschulungen für Pflegeheime, Spitex, Unternehmen, Schulen und Vereine." />
   <meta name="twitter:image" content="https://notfallhandwerk.ch/og-image.jpg" />
-<!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#f6f8fb;
+      --bg:#f5f7fa;
       --card:#ffffff;
-      --text:#18212a;
-      --muted:#5a6775;
-      --line:#dce5ee;
+      --text:#161e26;
+      --muted:#5c6b78;
+      --line:#dce4ed;
       --brand:#0d6e74;
       --brand-dark:#0a5357;
-      --accent:#e8f5f4;
+      --brand-light:#e6f4f3;
+      --accent:#d8efee;
       --ok:#166534;
-      --shadow:0 14px 34px rgba(20,33,61,0.08);
-      --radius:22px;
-      --max:1140px;
+      --shadow-sm:0 1px 3px rgba(14,28,40,0.06), 0 4px 12px rgba(14,28,40,0.05);
+      --shadow:0 2px 8px rgba(14,28,40,0.06), 0 12px 32px rgba(14,28,40,0.07);
+      --shadow-lg:0 4px 16px rgba(14,28,40,0.08), 0 24px 48px rgba(14,28,40,0.09);
+      --radius:20px;
+      --radius-sm:12px;
+      --max:1120px;
+      --font-body:'DM Sans', system-ui, sans-serif;
+      --font-display:'Instrument Serif', Georgia, serif;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box; margin:0; padding:0}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:linear-gradient(180deg,#f9fbfd 0%, #f3f6fa 100%);
+      font-family:var(--font-body);
+      background:var(--bg);
       color:var(--text);
       line-height:1.6;
+      -webkit-font-smoothing:antialiased;
     }
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .badge{
-      display:inline-block;
-      background:var(--accent);
-      color:var(--brand-dark);
-      border:1px solid #cfe6e4;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:.01em;
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+
+    /* ── NAV ── */
+    header{
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,247,250,0.88);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
     }
-    header{padding:24px 0 8px}
     .nav{
-      display:flex;
-      align-items:center;
+      display:flex; align-items:center;
       justify-content:space-between;
-      gap:16px;
-      padding:6px 0 12px;
+      gap:16px; padding:14px 0;
     }
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:24px;
-    }
-    .nav-links a.nav-link{
-      color:var(--text);
-      text-decoration:none;
-      font-weight:600;
-      font-size:15px;
-    }
-    .nav-links a.nav-link:hover{color:var(--brand-dark)}
     .wordmark{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      text-decoration:none;
-      color:inherit;
+      display:flex; flex-direction:column; gap:1px;
+      text-decoration:none; color:inherit;
     }
     .wordmark-title{
-      font-weight:900;
-      letter-spacing:.01em;
+      font-family:var(--font-display);
+      font-size:26px; line-height:1;
       color:var(--brand-dark);
-      font-size:28px;
-      line-height:1;
+      letter-spacing:-.01em;
     }
     .wordmark-sub{
-      font-size:12px;
-      font-weight:800;
-      color:var(--muted);
-      letter-spacing:.15em;
+      font-size:10px; font-weight:600;
+      color:var(--muted); letter-spacing:.14em;
       text-transform:uppercase;
     }
+    .nav-links{display:flex; align-items:center; gap:20px}
+    .nav-links a.nav-link{
+      color:var(--text); text-decoration:none;
+      font-weight:500; font-size:15px;
+      opacity:.8; transition:.15s;
+    }
+    .nav-links a.nav-link:hover{opacity:1; color:var(--brand-dark)}
+
+    /* ── BUTTONS ── */
     .btn{
-      appearance:none;
-      border:none;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      cursor:pointer;
-      padding:14px 18px;
-      border-radius:14px;
-      font-weight:800;
-      transition:.2s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none; cursor:pointer; border:none;
+      font-family:var(--font-body); font-weight:600;
+      transition:all .18s ease; white-space:nowrap;
     }
     .btn-primary{
-      background:var(--brand);
-      color:white;
-      box-shadow:var(--shadow);
+      background:var(--brand); color:#fff;
+      padding:13px 22px; border-radius:var(--radius-sm);
+      font-size:15px; box-shadow:0 2px 12px rgba(13,110,116,.28);
     }
-    .btn-primary:hover{background:var(--brand-dark); transform:translateY(-1px)}
+    .btn-primary:hover{background:var(--brand-dark); transform:translateY(-1px); box-shadow:0 4px 18px rgba(13,110,116,.35)}
     .btn-secondary{
-      background:white;
-      color:var(--brand-dark);
-      border:1px solid var(--line);
+      background:var(--card); color:var(--brand-dark);
+      border:1.5px solid var(--line);
+      padding:12px 20px; border-radius:var(--radius-sm);
+      font-size:15px;
     }
-    .hero{
-      padding:28px 0 42px;
+    .btn-secondary:hover{border-color:#aac9c8; background:#fafcfc}
+    .btn-nav{
+      background:var(--brand); color:#fff;
+      padding:9px 16px; border-radius:10px;
+      font-size:14px; font-weight:600;
+      box-shadow:0 2px 8px rgba(13,110,116,.2);
     }
-    .hero-card, .card{
+    .btn-nav:hover{background:var(--brand-dark)}
+
+    /* ── BADGES ── */
+    .badge{
+      display:inline-flex; align-items:center; gap:6px;
+      background:var(--brand-light); color:var(--brand-dark);
+      border:1px solid #c4dedd;
+      padding:6px 14px; border-radius:999px;
+      font-size:13px; font-weight:600; letter-spacing:.01em;
+    }
+    .badge-dot{
+      width:6px; height:6px; border-radius:50%;
+      background:var(--brand); flex-shrink:0;
+    }
+    .badge-src{
+      display:inline-flex; align-items:center; gap:8px;
+      background:#fff9ed; color:#854f0b;
+      border:1px solid #f5d88a;
+      padding:7px 14px; border-radius:999px;
+      font-size:13px; font-weight:600;
+    }
+    .badge-src-icon{
+      width:18px; height:18px; flex-shrink:0;
+    }
+
+    /* ── HERO ── */
+    .hero{padding:48px 0 52px}
+    .hero-inner{
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:28px; align-items:start;
+    }
+    .hero-card{
       background:var(--card);
-      border:1px solid rgba(220,229,238,.95);
+      border:1px solid rgba(220,229,238,.9);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-lg);
+      padding:44px 48px;
     }
-    .hero-copy{padding:40px}
     h1{
-      margin:14px 0 14px;
-      font-size:clamp(36px, 5vw, 60px);
-      line-height:1.04;
-      letter-spacing:-0.03em;
+      font-family:var(--font-display);
+      font-size:clamp(38px, 4.5vw, 58px);
+      line-height:1.05; letter-spacing:-.02em;
+      margin:14px 0 18px; font-weight:400;
     }
+    h1 em{font-style:italic; color:var(--brand-dark)}
     .lead{
-      font-size:19px;
-      color:var(--muted);
-      max-width:64ch;
-      margin:0 0 22px;
+      font-size:18px; color:var(--muted);
+      line-height:1.65; max-width:58ch;
+      margin-bottom:28px; font-weight:400;
     }
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin:24px 0 28px;
-    }
-    .quote{
-      margin-top:8px;
-      padding:16px 18px;
-      border-radius:16px;
-      background:#f8fbfc;
-      border:1px solid #dbeaea;
-      font-weight:700;
-      color:var(--brand-dark);
+    .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:32px}
+    .hero-quote{
+      padding:16px 20px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#f0faf9 0%,#e8f5f4 100%);
+      border:1px solid #cce5e3;
+      font-family:var(--font-display);
+      font-style:italic;
+      font-size:17px; color:var(--brand-dark);
+      margin-bottom:24px;
     }
     .facts{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin-top:16px;
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:10px;
     }
     .fact{
-      background:#f9fcfd;
-      border:1px solid #dbeceb;
-      padding:14px;
-      border-radius:16px;
+      background:#f7fbfb;
+      border:1px solid #d9ecea;
+      padding:14px 16px; border-radius:14px;
     }
     .fact strong{
+      display:block; font-size:16px; font-weight:700;
+      color:var(--brand-dark); margin-bottom:3px;
+    }
+    .fact span{font-size:12px; color:var(--muted); line-height:1.45}
+
+    /* ── HERO SIDEBAR ── */
+    .hero-side{display:flex; flex-direction:column; gap:16px}
+    .photo-card{
+      background:var(--card);
+      border:1px solid rgba(220,229,238,.9);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .photo-img{
+      width:100%; aspect-ratio:1/1;
+      object-fit:cover; object-position:center top;
       display:block;
-      font-size:20px;
-      color:var(--brand-dark);
-      margin-bottom:4px;
     }
-    .hero-side{padding:26px; display:flex; flex-direction:column; gap:16px}
-    .side-box{
-      background:linear-gradient(180deg,#f8fcfc 0%, #eef7f6 100%);
-      border:1px solid #d8ebea;
-      border-radius:18px;
-      padding:22px;
+    .photo-caption{
+      padding:16px 20px 18px;
+      border-top:1px solid var(--line);
     }
-    .checklist{padding:0; margin:14px 0 0; list-style:none}
-    .checklist li{
-      padding-left:28px;
-      position:relative;
-      margin:10px 0;
-      color:var(--muted);
+    .photo-name{font-weight:700; font-size:16px; color:var(--text); margin-bottom:2px}
+    .photo-title{font-size:13px; color:var(--muted); line-height:1.5}
+    .src-card{
+      background:var(--card);
+      border:1.5px solid #f0d070;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:20px;
     }
-    .checklist li::before{
-      content:"✓";
-      position:absolute;
-      left:0; top:0;
-      color:var(--ok);
-      font-weight:900;
+    .src-card-header{
+      display:flex; align-items:center; gap:10px;
+      margin-bottom:10px;
     }
-    section{padding:18px 0 26px}
-    .section-head{margin-bottom:18px; max-width:72ch}
+    .src-seal{
+      width:44px; height:44px; flex-shrink:0;
+      background:linear-gradient(135deg,#1a6b5a 0%,#0d4f40 100%);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; font-size:13px; color:#fff;
+      letter-spacing:.02em;
+    }
+    .src-card-title{font-weight:700; font-size:15px; color:var(--text)}
+    .src-card-sub{font-size:12px; color:var(--muted)}
+    .src-label{
+      display:inline-block;
+      background:#fef9ed; color:#7a4b08;
+      border:1px solid #f0d070;
+      border-radius:8px; padding:6px 12px;
+      font-size:12px; font-weight:600;
+      margin-bottom:10px; line-height:1.4;
+    }
+    .src-note{font-size:12px; color:var(--muted); line-height:1.5}
+
+    /* ── SECTIONS ── */
+    section{padding:20px 0 32px}
+    .section-head{margin-bottom:22px}
     h2{
-      font-size:clamp(28px, 3vw, 38px);
-      line-height:1.1;
-      letter-spacing:-0.02em;
-      margin:0 0 10px;
+      font-family:var(--font-display);
+      font-size:clamp(28px, 3vw, 40px);
+      font-weight:400; letter-spacing:-.02em;
+      line-height:1.1; margin-bottom:8px;
+      color:var(--text);
     }
-    .sub{
-      color:var(--muted);
-      font-size:18px;
-      margin:0;
+    h2 em{font-style:italic; color:var(--brand-dark)}
+    .sub{color:var(--muted); font-size:17px; line-height:1.55}
+
+    /* ── CARDS ── */
+    .card{
+      background:var(--card);
+      border:1px solid rgba(220,229,238,.9);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:28px;
     }
-    .grid-3{
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .service-card{
+      background:var(--card);
+      border:1px solid rgba(220,229,238,.9);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:28px;
+      transition:box-shadow .2s, transform .2s;
+    }
+    .service-card:hover{box-shadow:var(--shadow); transform:translateY(-2px)}
+    .service-icon{
+      width:44px; height:44px;
+      background:var(--brand-light);
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:16px;
+    }
+    .service-icon svg{width:22px; height:22px; stroke:var(--brand-dark); fill:none; stroke-width:1.8}
+    .service-card h3{font-size:20px; font-weight:700; margin-bottom:10px; color:var(--text)}
+    .service-card p{font-size:15px; color:var(--muted); line-height:1.6}
+
+    /* ── ÜBER MICH ── */
+    .about-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
+      grid-template-columns:260px 1fr;
+      gap:32px; align-items:start;
     }
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
+    .about-photo-wrap{position:relative}
+    .about-photo{
+      width:100%; border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      display:block; object-fit:cover;
     }
-    .card{padding:24px}
-    .card h3{margin:0 0 10px; font-size:22px}
-    .muted{color:var(--muted)}
-    .contact-box a{
-      color:var(--brand-dark);
-      font-weight:700;
-      text-decoration:none;
+    .about-text h2{margin-bottom:10px}
+    .about-text p{font-size:16px; color:var(--muted); line-height:1.7; margin-bottom:16px}
+    .checklist{list-style:none; padding:0; display:flex; flex-direction:column; gap:10px}
+    .checklist li{
+      display:flex; align-items:flex-start; gap:10px;
+      font-size:15px; color:var(--muted); line-height:1.55;
     }
-    .contact-box a:hover{text-decoration:underline}
-    .form-card{padding:26px}
-    form{display:grid; gap:14px}
+    .check-icon{
+      width:20px; height:20px; flex-shrink:0;
+      background:var(--brand-light); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin-top:1px;
+    }
+    .check-icon svg{width:11px; height:11px; stroke:var(--brand-dark); stroke-width:2.5}
+
+    /* ── FORM ── */
+    .form-card{
+      background:var(--card);
+      border:1px solid rgba(220,229,238,.9);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:40px;
+    }
+    form{display:grid; gap:16px}
     .form-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
+      gap:16px;
     }
     label{
-      font-weight:700;
-      display:block;
-      margin-bottom:8px;
-      font-size:15px;
+      font-weight:600; display:block;
+      margin-bottom:8px; font-size:14px;
+      color:var(--text);
     }
     input, select, textarea{
       width:100%;
-      border:1px solid #cfdae6;
-      border-radius:14px;
-      padding:14px 14px;
-      font:inherit;
+      border:1.5px solid #d4dde8;
+      border-radius:10px;
+      padding:13px 15px;
+      font:inherit; font-size:15px;
       color:var(--text);
       background:#fff;
+      transition:border-color .15s, box-shadow .15s;
     }
     input:focus, select:focus, textarea:focus{
       outline:none;
-      border-color:#88babb;
-      box-shadow:0 0 0 4px rgba(13,110,116,.08);
+      border-color:var(--brand);
+      box-shadow:0 0 0 4px rgba(13,110,116,.1);
     }
-    textarea{min-height:132px; resize:vertical}
+    textarea{min-height:130px; resize:vertical}
     .consent{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      color:var(--muted);
-      font-size:14px;
+      display:flex; align-items:flex-start; gap:10px;
+      color:var(--muted); font-size:14px;
     }
-    .consent input{
-      width:auto;
-      margin-top:4px;
-    }
+    .consent input{width:auto; margin-top:3px}
     .small{font-size:13px; color:var(--muted)}
     .notice{
-      margin-top:12px;
-      padding:14px 16px;
-      border-radius:14px;
-      background:#f4fbf6;
-      border:1px solid #cae8d0;
-      color:#0f5132;
-      display:none;
+      margin-top:4px; padding:14px 16px;
+      border-radius:12px; background:#f2fbf5;
+      border:1px solid #b6e4c4; color:#0f5132;
+      display:none; font-size:14px;
     }
-    .footer{
-      padding:34px 0 46px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .footer-line{
-      border-top:1px solid var(--line);
-      padding-top:18px;
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
+
+    /* ── FOOTER ── */
+    .footer{padding:32px 0 44px; color:var(--muted); font-size:14px}
+    .footer-inner{
+      border-top:1px solid var(--line); padding-top:20px;
+      display:flex; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
     }
     .highlight{
-      background:linear-gradient(transparent 62%, #dff2f1 62%);
+      background:linear-gradient(transparent 60%, rgba(13,110,116,.12) 60%);
+      padding-bottom:2px;
     }
-    @media (max-width: 960px){
-      .grid-3, .grid-2{grid-template-columns:1fr}
-      .facts{grid-template-columns:1fr}
-      .nav-links{gap:14px}
-      .nav-links a.nav-link{display:none}
-      .nav-links a.btn{display:inline-flex}
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1000px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-side{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+      .about-grid{grid-template-columns:1fr}
+      .about-photo-wrap{max-width:280px}
     }
-    @media (max-width: 680px){
+    @media (max-width:760px){
+      .grid-3{grid-template-columns:1fr}
+      .hero-side{grid-template-columns:1fr}
+      .hero-card{padding:28px 24px}
+      .form-card{padding:24px}
       .form-grid{grid-template-columns:1fr}
-      .hero-copy, .hero-side, .card, .form-card{padding:22px}
-      h1{font-size:40px}
-      .lead{font-size:17px}
-      .nav{flex-direction:column; align-items:flex-start}
+      .facts{grid-template-columns:1fr}
+      .nav-links a.nav-link{display:none}
+    }
+    @media (max-width:520px){
+      .wrap{padding:0 16px}
+      h1{font-size:36px}
+      .lead{font-size:16px}
     }
   </style>
   <script type="application/ld+json">
@@ -337,51 +421,15 @@
         "@type": "Person",
         "name": "Manuela Züger",
         "jobTitle": "Dipl. Expertin Notfallpflege NDS HF",
-        "hasCredential": [
-          "NDS HF Notfallpflege",
-          "SVEB I",
-          "BLS-AED Instruktorin SRC"
-        ]
+        "hasCredential": ["NDS HF Notfallpflege", "SVEB I", "BLS-AED Instruktorin SRC", "SRC-anerkannt nach Guidelines 2025"]
       },
-      "areaServed": {
-        "@type": "Place",
-        "name": "Zürich und Umgebung"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Zürich",
-        "addressRegion": "ZH",
-        "addressCountry": "CH"
-      },
+      "areaServed": {"@type": "Place", "name": "Zürich und Umgebung"},
+      "address": {"@type": "PostalAddress", "addressLocality": "Zürich", "addressRegion": "ZH", "addressCountry": "CH"},
       "knowsLanguage": ["de", "de-CH"]
-    },
-    {
-      "@type": "Service",
-      "name": "BLS-AED Kurse",
-      "description": "Inhouse-BLS-AED-Schulungen für Teams und Institutionen mit Fokus auf klare Abläufe und sichere Handlungsschritte.",
-      "provider": { "@id": "https://www.notfallhandwerk.ch/#business" },
-      "areaServed": "Zürich, Schweiz",
-      "serviceType": "BLS-AED Schulung"
-    },
-    {
-      "@type": "Service",
-      "name": "Notfallschulungen",
-      "description": "Schulungen zum Erkennen von Notfallsituationen, Sofortmassnahmen und sicherem Handeln im Alltag.",
-      "provider": { "@id": "https://www.notfallhandwerk.ch/#business" },
-      "areaServed": "Zürich, Schweiz",
-      "serviceType": "Notfallschulung"
-    },
-    {
-      "@type": "Service",
-      "name": "Beratung und Konzepte",
-      "description": "Unterstützung bei Notfallorganisation, AED-Standorten und institutionsspezifischen Schulungskonzepten.",
-      "provider": { "@id": "https://www.notfallhandwerk.ch/#business" },
-      "areaServed": "Zürich, Schweiz",
-      "serviceType": "Beratung Notfallorganisation"
     }
   ]
 }
-</script>
+  </script>
 </head>
 <body>
   <header>
@@ -393,72 +441,111 @@
       <nav class="nav-links">
         <a class="nav-link" href="#angebot">Angebot</a>
         <a class="nav-link" href="#ueber">Über mich</a>
-        <a class="btn btn-secondary" href="#interesse">Interesse anmelden</a>
+        <a class="btn btn-nav" href="#interesse">Interesse anmelden</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- ── HERO ── -->
     <div class="wrap hero">
-      <div class="hero-card hero-copy">
-        <span class="badge">BLS-AED · Notfallschulungen · Inhouse</span>
-        <h1>Praxisnahe <span class="highlight">Notfallschulungen</span> für Unternehmen und Institutionen</h1>
-        <p class="lead">
-          Notfallhandwerk bietet BLS-AED-Kurse und Notfallschulungen für Pflegeheime, Spitex,
-          Unternehmen, Schulen und Vereine – verständlich, praxisnah und auf Ihre Realität abgestimmt.
-        </p>
+      <div class="hero-inner">
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#interesse">Unverbindlich Interesse anmelden</a>
-          <a class="btn btn-secondary" href="#angebot">Angebot ansehen</a>
+        <div class="hero-card">
+          <span class="badge"><span class="badge-dot"></span>BLS-AED · Notfallschulungen · Inhouse</span>
+          <h1>Praxisnahe <em><span class="highlight">Notfallschulungen</span></em><br>für Ihr Team</h1>
+          <p class="lead">
+            Notfallhandwerk bietet BLS-AED-Kurse und Notfallschulungen für Pflegeheime, Spitex,
+            Unternehmen, Schulen und Vereine – verständlich, praxisnah und auf Ihre Realität abgestimmt.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#interesse">Unverbindlich Interesse anmelden</a>
+            <a class="btn btn-secondary" href="#angebot">Angebot ansehen</a>
+          </div>
+
+          <div class="hero-quote">„Weil Leben retten ein Handwerk ist."</div>
+
+          <div class="facts">
+            <div class="fact">
+              <strong>NDS HF</strong>
+              <span>Dipl. Expertin Notfallpflege mit fundierter Praxiserfahrung</span>
+            </div>
+            <div class="fact">
+              <strong>SVEB I</strong>
+              <span>Didaktische Qualifikation in der Erwachsenenbildung</span>
+            </div>
+            <div class="fact">
+              <strong>SRC 2025</strong>
+              <span>BLS-AED Instruktorin SRC, anerkannt nach Guidelines 2025</span>
+            </div>
+          </div>
         </div>
 
-        <div class="quote">Weil Leben retten ein Handwerk ist.</div>
+        <div class="hero-side">
+          <div class="photo-card">
+            <img class="photo-img" src="manuela-zueger.jpg" alt="Manuela Züger, Inhaberin Notfallhandwerk" />
+            <div class="photo-caption">
+              <div class="photo-name">Manuela Züger</div>
+              <div class="photo-title">Dipl. Expertin Notfallpflege NDS HF<br>Inhaberin Notfallhandwerk</div>
+            </div>
+          </div>
 
-        <div class="facts">
-          <div class="fact">
-            <strong>NDS HF</strong>
-            <span>Dipl. Expertin Notfallpflege mit fundierter Praxiserfahrung</span>
-          </div>
-          <div class="fact">
-            <strong>SVEB I</strong>
-            <span>Didaktische Qualifikation in der Erwachsenenbildung</span>
-          </div>
-          <div class="fact">
-            <strong>SRC</strong>
-            <span>BLS-AED Instruktorin SRC mit Fokus auf aktuelle Standards</span>
+          <div class="src-card">
+            <div class="src-card-header">
+              <div class="src-seal">SRC</div>
+              <div>
+                <div class="src-card-title">SRC-anerkannt</div>
+                <div class="src-card-sub">Swiss Resuscitation Council</div>
+              </div>
+            </div>
+            <div class="src-label">✓ Anerkannt nach Guidelines 2025</div>
+            <p class="src-note">
+              Notfallhandwerk ist offiziell als SRC-anerkannter Kursanbieter für BLS-AED-SRC-Kurse nach den aktuellen Guidelines 2025 anerkannt.
+            </p>
           </div>
         </div>
+
       </div>
     </div>
 
+    <!-- ── ANGEBOT ── -->
     <section id="angebot">
       <div class="wrap">
         <div class="section-head">
-          <h2>Das Angebot</h2>
+          <h2>Das <em>Angebot</em></h2>
           <p class="sub">
-            Schulungen und Beratungen, die sich am Alltag der Teilnehmenden orientieren – statt an starren Standardlösungen.
+            Schulungen und Beratungen, die sich am Alltag der Teilnehmenden orientieren –<br>statt an starren Standardlösungen.
           </p>
         </div>
 
         <div class="grid-3">
-          <div class="card">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zM12 14c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/><path d="M9 9l1.5 1.5L13 8"/></svg>
+            </div>
             <h3>BLS-AED Kurse</h3>
-            <p class="muted">
+            <p>
               Inhouse-BLS-AED-Schulungen für Teams und Institutionen – mit Fokus auf klare Abläufe,
               sichere Handlungsschritte und verständliche Vermittlung.
             </p>
           </div>
-          <div class="card">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
             <h3>Notfallschulungen</h3>
-            <p class="muted">
+            <p>
               Erkennen von Notfallsituationen, Bewusstseinsstörungen, Atemwegsverlegung,
               stabile Seitenlage und weitere zentrale Sofortmassnahmen.
             </p>
           </div>
-          <div class="card">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
             <h3>Beratung &amp; Konzepte</h3>
-            <p class="muted">
+            <p>
               Unterstützung bei Notfallorganisation, AED-Standorten, institutionsspezifischen Algorithmen
               und der Entwicklung passender Schulungskonzepte.
             </p>
@@ -467,40 +554,62 @@
       </div>
     </section>
 
+    <!-- ── ÜBER MICH ── -->
     <section id="ueber">
       <div class="wrap">
         <div class="card">
-          <div class="section-head">
-            <h2>Über Manuela Züger &amp; Notfallhandwerk</h2>
-            <p class="sub">Fachkompetenz, Praxisnähe und persönliche Begleitung.</p>
+          <div class="about-grid">
+            <div class="about-photo-wrap">
+              <img class="about-photo" src="manuela-zueger.jpg" alt="Manuela Züger" />
+            </div>
+            <div class="about-text">
+              <h2>Über <em>Manuela Züger</em><br>&amp; Notfallhandwerk</h2>
+              <p class="sub" style="margin-bottom:16px">Fachkompetenz, Praxisnähe und persönliche Begleitung.</p>
+              <p>
+                Manuela Züger ist <strong>Dipl. Expertin Notfallpflege NDS HF</strong> und führt
+                Notfallhandwerk als <strong>Einzelunternehmen</strong>. Sie verbindet fundierte klinische Erfahrung
+                mit pädagogischer Kompetenz und legt Wert auf ruhige, verständliche und alltagsnahe Schulungen.
+                Ziel ist es, Menschen so zu schulen, dass sie im entscheidenden Moment sicher und ohne Zögern handeln können.
+              </p>
+              <ul class="checklist">
+                <li>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                  Spezialisierung auf Pflegeheime, Gesundheitswesen und praxisnahe Teamschulungen
+                </li>
+                <li>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                  Langjährige Erfahrung in der Notfallpflege
+                </li>
+                <li>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                  Persönliche Durchführung statt anonymer Kursbetrieb
+                </li>
+                <li>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                  Flexible Inhouse-Lösungen ohne zusätzlichen Reiseaufwand für Ihr Team
+                </li>
+                <li>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                  Reale Fallbeispiele aus dem Berufsalltag statt rein theoretischer Unterricht
+                </li>
+              </ul>
+            </div>
           </div>
-          <p>
-            Manuela Züger ist <strong>Dipl. Expertin Notfallpflege NDS HF</strong> und führt
-            Notfallhandwerk als <strong>Einzelunternehmen</strong>. Sie verbindet fundierte klinische Erfahrung
-            mit pädagogischer Kompetenz und legt Wert auf ruhige, verständliche und alltagsnahe Schulungen.
-            Ziel ist, Menschen so zu schulen, dass sie im entscheidenden Moment sicher und ohne Zögern handeln können.
-          </p>
-          <ul class="checklist">
-            <li>Spezialisierung auf Pflegeheime, Gesundheitswesen und praxisnahe Teamschulungen</li>
-            <li>Langjährige Erfahrung in der Notfallpflege</li>
-            <li>Persönliche Durchführung statt anonymer Kursbetrieb</li>
-            <li>Flexible Inhouse-Lösungen ohne zusätzlichen Reiseaufwand für Ihr Team</li>
-            <li>Reale Fallbeispiele aus dem Berufsalltag statt rein theoretischer Unterricht</li>
-          </ul>
         </div>
       </div>
     </section>
 
+    <!-- ── INTERESSE ── -->
     <section id="interesse">
       <div class="wrap">
         <div class="section-head">
-          <h2>Unverbindlich Interesse anmelden</h2>
+          <h2>Unverbindlich <em>Interesse anmelden</em></h2>
           <p class="sub">
             Hinterlassen Sie Ihre Angaben. Gerne melde ich mich für eine erste Bedarfsklärung oder eine Offerte.
           </p>
         </div>
 
-        <div class="hero-card form-card">
+        <div class="form-card">
           <form id="interestForm">
             <div class="form-grid">
               <div>
@@ -548,13 +657,13 @@
             </div>
 
             <div class="notice" id="notice">
-              Ihr Mailprogramm wurde vorbereitet. Bitte prüfen Sie die E-Mail und senden Sie sie anschliessend an info@notfallhandwerk.ch ab.
+              ✓ Ihr Mailprogramm wurde vorbereitet. Bitte prüfen Sie die E-Mail und senden Sie sie an info@notfallhandwerk.ch ab.
             </div>
 
             <p class="small">
               Hinweis: Die Anfrage wird über das auf Ihrem Gerät eingerichtete E-Mail-Programm vorbereitet.
-              Falls das nicht funktioniert, schreiben Sie gerne direkt an
-              <a href="mailto:info@notfallhandwerk.ch" style="color:var(--brand-dark); font-weight:700;">info@notfallhandwerk.ch</a>.
+              Falls das nicht funktioniert, schreiben Sie direkt an
+              <a href="mailto:info@notfallhandwerk.ch" style="color:var(--brand-dark); font-weight:600;">info@notfallhandwerk.ch</a>.
             </p>
           </form>
         </div>
@@ -564,19 +673,19 @@
 
   <footer class="footer" id="impressum">
     <div class="wrap">
-      <div class="card" style="margin-bottom:18px;">
-        <h3>Impressum</h3>
-        <p>
+      <div class="card" style="margin-bottom:20px;">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">Impressum</h3>
+        <p style="margin-bottom:8px;">
           <strong>Notfallhandwerk</strong><br />
           Inhaberin: Manuela Züger<br />
-          E-Mail: <a href="mailto:info@notfallhandwerk.ch" style="color:var(--brand-dark); font-weight:700; text-decoration:none;">info@notfallhandwerk.ch</a>
+          E-Mail: <a href="mailto:info@notfallhandwerk.ch" style="color:var(--brand-dark); font-weight:600; text-decoration:none;">info@notfallhandwerk.ch</a>
         </p>
         <p class="small">
           Diese Website dient der Information über das Angebot von Notfallhandwerk sowie der unverbindlichen Kontaktaufnahme.
         </p>
       </div>
 
-      <div class="footer-line">
+      <div class="footer-inner">
         <div>© 2026 Notfallhandwerk</div>
         <div>Kontakt: Manuela Züger · info@notfallhandwerk.ch</div>
       </div>
@@ -594,7 +703,6 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
       const subject = 'Neue Anfrage über die Website Notfallhandwerk';
       const body = [
         'Neue Interessensanfrage über die Website',
@@ -608,7 +716,6 @@
         'Nachricht:',
         val('nachricht')
       ].join('\n');
-
       const mailto = 'mailto:info@notfallhandwerk.ch?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       window.location.href = mailto;
       notice.style.display = 'block';
